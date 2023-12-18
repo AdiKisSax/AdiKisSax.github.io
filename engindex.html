@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dr. Soós Tibor Law Firm</title>
+</head>
+
+<body>
+    <div class="yoszlop">
+        <ul>
+            <li class="englishgomb">
+                <a href="index.html"> HU</a> | <a href=""> DE  </a>
+            </li>
+
+            <li style="border: none;"></li>
+            <li style="border: none;"></li>
+            <li style="border: none;"></li>
+            <li style="border: none;"></li>
+
+            <li class="active"><a href="engindex.html">HOME </a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="education.html">EDUCATION</a></li>
+            <li><a href="experiences.html">EXPERIENCES</a></li>
+            <li><a href="studies.html">STUDIES</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+
+        </ul>
+    </div>
+    <div class="menu">
+        <nav class="menu__nav">
+            <ul class="menu__list r-list">
+                <li class="menu__group normal">
+                    <a href="engindex.html" class="menu__link r-link">Home</a>
+                </li>
+                <li class="menu__group normal">
+                    <a href="services.html" class="menu__link r-link">Services</a>
+                </li>
+                <li class="menu__group normal">
+                    <a href="education.html" class="menu__link r-link">Education</a>
+                </li>
+                <li class="menu__group normal">
+                    <a href="experiences.html" class="menu__link r-link">Experiences</a>
+                </li>
+                <li class="menu__group normal">
+                    <a href="studies.html" class="menu__link r-link">Studies</a>
+                </li>
+                <li class="menu__group normal">
+                    <a href="contact.html" class="menu__link r-link">Contact</a>
+                </li>
+                <li class="menu__group normal">
+                    <a href="index.html" class="menu__link r-link">Hungarian | </a> <a href="" class="menu__link r-link"> Deutsch</a>
+                </li>
+            </ul>
+        </nav>
+        <button class="menu__toggle r-button" type="button">
+              <span class="menu__hamburger m-hamburger">
+                <span class="m-hamburger__label">
+                  <span class="menu__toggle-hint screen-reader">Open Menu</span>
+                </span>
+              </span>
+            </button>
+    </div>
+
+
+    <div class="xoszlop"><br><b>Dr. Soós Tibor Law Firm </b><br> <br> Address: 1021 Budapest, Hűvösvölgyi út 81. <br> Landline mobil: +36 1 274 2607; Mobil: 06/20/539-4703 <br> E-mail: tibor.soos@avocat.hu; alawofficebpsoos@t-online.hu</div>
+    <div class="logo"></div>
+    <article class="szoveg1">
+        <div class="szoveges">
+            <p style="line-height: 1.6; color:#985d41bf">Our office primarily deals with civil law, economic, public procurement, company law and copyright issues, real estate matters, document drafting, as well as media law and inheritance matters. In the field of criminal law, we specialize in
+                economic, traffic and copyright crimes. In addition to all of this, we participate in case studying in the field of public administration and carry out efficiency studies in several areas of economic life. Our office is awarded the Middle
+                Cross of the Order of Merit of the Hungarian Republic. Volunteering is highly important for us. In voluntary work, we represent the <a href="http://munkakoralap.hu/english/" target="_blank" style="color:#985d41bf"><b>Munka-Kör Foundation for the Hearing Impaired</b></a>                and the <a href="https://regi.gttsz.hu/01gttsz/01index.htm" target="_blank" style="color:#985d41bf"><b>GTTSz NGOs </b> in litigation and out-of-court cases.</p>
+        </div>
+        <div>
+            <img src="kep1.jpg" alt="" class="kephelye">
+        </div>
+    </article>
+    <script>
+        (function() {
+            'use strict';
+
+            class Menu {
+                constructor(settings) {
+                    this.menuRootNode = settings.menuRootNode;
+                    this.isOpened = false;
+                }
+
+                changeMenuState(menuState) {
+                    return this.isOpened = !menuState;
+                }
+
+                changeToggleHint(toggleHint, toggleNode) {
+                    toggleNode.textContent = toggleHint;
+                    return toggleHint;
+                }
+            }
+
+            const menuClassesNames = {
+                rootClass: 'menu',
+                activeClass: 'menu_activated',
+                toggleClass: 'menu__toggle',
+                toggleHintClass: 'menu__toggle-hint'
+            }
+
+            const jsMenuNode = document.querySelector(`.${menuClassesNames.rootClass}`);
+            const demoMenu = new Menu({
+                menuRootNode: jsMenuNode
+            });
+
+            function getCurrentToggleHint(currentMenuState) {
+                return (currentMenuState !== true) ? 'Open menu' : 'Close menu';
+            }
+
+            function toggleMenu(event) {
+
+                let currentMenuState = demoMenu.changeMenuState(demoMenu.isOpened);
+                let toggleHint = getCurrentToggleHint(currentMenuState);
+
+                demoMenu.changeToggleHint(
+                    toggleHint,
+                    demoMenu.menuRootNode.querySelector(`.${menuClassesNames.toggleHintClass}`)
+                );
+                demoMenu.menuRootNode.classList.toggle(`${menuClassesNames.activeClass}`);
+
+                return currentMenuState;
+            }
+
+            jsMenuNode.querySelector(`.${menuClassesNames.toggleClass}`).addEventListener('click', toggleMenu);
+        })();
+    </script>
+
+</body>
+
+</html>

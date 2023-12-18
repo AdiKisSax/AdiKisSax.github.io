@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dr. Soós Tibor Ügyvédi Iroda</title>
+</head>
+
+<body>
+
+
+
+    <div class="yoszlop">
+        <ul>
+            <li class="englishgomb">
+                <a href="studies.html"> ENG</a> | <a href=""> DE  </a>
+            </li>
+
+            <li style="border: none;"></li>
+            <li style="border: none;"></li>
+            <li style="border: none;"></li>
+            <li style="border: none;"></li>
+
+            <li><a href="index.html">KEZDŐLAP </a></li>
+            <li><a href="szolgaltatas.html">SZOLGÁLTATÁS</a></li>
+            <li><a href="oktatas.html">OKTATÁS</a></li>
+            <li><a href="tapasztalatok.html">TAPASZTALATOK</a></li>
+            <li class="active"><a href="tanulmanyok.html">TANULMÁNYOK</a></li>
+            <li><a href="kapcsolat.html">ELÉRHETŐSÉG</a></li>
+
+        </ul>
+    </div>
+    <div class="menu">
+        <nav class="menu__nav">
+            <ul class="menu__list r-list">
+                <li class="menu__group normal">
+                    <a href="index.html" class="menu__link r-link">Kezdőlap</a>
+                </li>
+                <li class="menu__group normal">
+                    <a href="szolgaltatas.html" class="menu__link r-link">Szolgáltatás</a>
+                </li>
+                <li class="menu__group normal">
+                    <a href="oktatas.html" class="menu__link r-link">Oktatás</a>
+                </li>
+                <li class="menu__group normal">
+                    <a href="tapasztalatok.html" class="menu__link r-link">Tapasztalatok</a>
+                </li>
+                <li class="menu__group normal">
+                    <a href="tanulmanyok.html" class="menu__link r-link">Tanulmányok</a>
+                </li>
+                <li class="menu__group normal">
+                    <a href="kapcsolat.html" class="menu__link r-link">Elérhetőség</a>
+                </li>
+                <li class="menu__group normal">
+                    <a href="studies.html" class="menu__link r-link">English | </a> <a href="" class="menu__link r-link"> Deutsch</a>
+                </li>
+            </ul>
+        </nav>
+        <button class="menu__toggle r-button" type="button">
+              <span class="menu__hamburger m-hamburger">
+                <span class="m-hamburger__label">
+                  <span class="menu__toggle-hint screen-reader">Open Menu</span>
+                </span>
+              </span>
+            </button>
+    </div>
+
+    <div class="xoszlop"><br><b>Dr. Soós Tibor Ügyvédi Iroda </b><br> <br> Cím: 1021 Budapest, Hűvösvölgyi út 81. <br> Vezetékes: +36 1 274 2607; Mobil: 06/20/539-4703 <br> E-mail: tibor.soos@avocat.hu; alawofficebpsoos@t-online.hu</div>
+    <div class="logo"></div>
+    <article class="szoveg1">
+        <div class="szoveges" style="color:#985d41f6;">
+
+            <br>
+            <br>
+            <b style="line-height: 1.6;">Tanulmányok: <br> </b>
+            <ul>
+                <li class="normal"> ügyvédi szakvizsga;</li>
+                <li class="normal"> Speciális biztonságtechnikai tanfolyamok és vizsga </li>
+                <li class="normal"> jogtanácsosi képzésekben való részvétel;</li>
+                <li class="normal"> Közbeszerzési tanácsadói képzésben előadó</li>
+                <li class="normal"> Médiajog specializáció</li>
+                <li class="normal">József Attila Tudományegyetem jogász diploma</li>
+                <li class="normal">ELTE Jogi Továbbképző: jogalkotási specializáció</li>
+
+            </ul> <br><br><br><br><br>
+            <br><br>
+
+        </div>
+        <script>
+            var accordions = document.querySelectorAll("button.accordion");
+
+            for (var i = 0; i < accordions.length; i++) {
+                accordions[i].onclick = function() {
+                    this.classList.toggle("active");
+                    this.nextElementSibling.classList.toggle("show");
+                };
+            }
+
+            function closeAll() {
+                for (var i = 0; i < accordions.length; i++) {
+                    accordions[i].classList.remove("active");
+                    accordions[i].nextElementSibling.classList.remove("show");
+                }
+            }
+        </script>
+        <script>
+            (function() {
+                'use strict';
+
+                class Menu {
+                    constructor(settings) {
+                        this.menuRootNode = settings.menuRootNode;
+                        this.isOpened = false;
+                    }
+
+                    changeMenuState(menuState) {
+                        return this.isOpened = !menuState;
+                    }
+
+                    changeToggleHint(toggleHint, toggleNode) {
+                        toggleNode.textContent = toggleHint;
+                        return toggleHint;
+                    }
+                }
+
+                const menuClassesNames = {
+                    rootClass: 'menu',
+                    activeClass: 'menu_activated',
+                    toggleClass: 'menu__toggle',
+                    toggleHintClass: 'menu__toggle-hint'
+                }
+
+                const jsMenuNode = document.querySelector(`.${menuClassesNames.rootClass}`);
+                const demoMenu = new Menu({
+                    menuRootNode: jsMenuNode
+                });
+
+                function getCurrentToggleHint(currentMenuState) {
+                    return (currentMenuState !== true) ? 'Open menu' : 'Close menu';
+                }
+
+                function toggleMenu(event) {
+
+                    let currentMenuState = demoMenu.changeMenuState(demoMenu.isOpened);
+                    let toggleHint = getCurrentToggleHint(currentMenuState);
+
+                    demoMenu.changeToggleHint(
+                        toggleHint,
+                        demoMenu.menuRootNode.querySelector(`.${menuClassesNames.toggleHintClass}`)
+                    );
+                    demoMenu.menuRootNode.classList.toggle(`${menuClassesNames.activeClass}`);
+
+                    return currentMenuState;
+                }
+
+                jsMenuNode.querySelector(`.${menuClassesNames.toggleClass}`).addEventListener('click', toggleMenu);
+            })();
+        </script>
+
+    </article>
+</body>
+
+</html>

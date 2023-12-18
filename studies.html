@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dr. Soós Tibor Law Firm</title>
+</head>
+
+<body>
+    <div class="yoszlop">
+        <ul>
+            <li class="englishgomb">
+                <a href="tanulmanyok.html"> HU</a> | <a href=""> DE  </a>
+            </li>
+
+            <li style="border: none;"></li>
+            <li style="border: none;"></li>
+            <li style="border: none;"></li>
+            <li style="border: none;"></li>
+
+            <li><a href="engindex.html">HOME </a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="education.html">EDUCATION</a></li>
+            <li><a href="experiences.html">EXPERIENCES</a></li>
+            <li class="active"><a href="studies.html">STUDIES</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+
+        </ul>
+    </div>
+    <div class="menu">
+        <nav class="menu__nav">
+            <ul class="menu__list r-list">
+                <li class="menu__group normal">
+                    <a href="engindex.html" class="menu__link r-link">Home</a>
+                </li>
+                <li class="menu__group normal">
+                    <a href="services.html" class="menu__link r-link">Services</a>
+                </li>
+                <li class="menu__group normal">
+                    <a href="education.html" class="menu__link r-link">Education</a>
+                </li>
+                <li class="menu__group normal">
+                    <a href="experiences.html" class="menu__link r-link">Experiences</a>
+                </li>
+                <li class="menu__group normal">
+                    <a href="studies.html" class="menu__link r-link">Studies</a>
+                </li>
+                <li class="menu__group normal">
+                    <a href="contact.html" class="menu__link r-link">Contact</a>
+                </li>
+                <li class="menu__group normal">
+                    <a href="tanulmanyok.html" class="menu__link r-link">Hungarian | </a> <a href="" class="menu__link r-link"> Deutsch</a>
+                </li>
+            </ul>
+        </nav>
+        <button class="menu__toggle r-button" type="button">
+              <span class="menu__hamburger m-hamburger">
+                <span class="m-hamburger__label">
+                  <span class="menu__toggle-hint screen-reader">Open Menu</span>
+                </span>
+              </span>
+            </button>
+    </div>
+
+    <div class="xoszlop"><br><b>Dr. Soós Tibor Law Firm </b><br> <br> Address: 1021 Budapest, Hűvösvölgyi út 81. <br> Landline mobil: +36 1 274 2607; Mobil: 06/20/539-4703 <br> E-mail: tibor.soos@avocat.hu; alawofficebpsoos@t-online.hu</div>
+    <div class="logo"></div>
+    <article class="szoveg1">
+        <div class="szoveges" style="color:#985d41f6;">
+
+            <br>
+            <br>
+            <b style="line-height: 1.6;">Studies: <br> </b>
+            <ul>
+                <li class="normal"> József Attila University law degree</li>
+                <li class="normal"> Special security courses, legal advisor training and exam </li>
+                <li class="normal"> Public procurement consultant</li>
+                <li class="normal"> Specialization in media law</li>
+
+            </ul> <br><br><br><br><br>
+            <br><br>
+
+        </div>
+        <script>
+            var accordions = document.querySelectorAll("button.accordion");
+
+            for (var i = 0; i < accordions.length; i++) {
+                accordions[i].onclick = function() {
+                    this.classList.toggle("active");
+                    this.nextElementSibling.classList.toggle("show");
+                };
+            }
+
+            function closeAll() {
+                for (var i = 0; i < accordions.length; i++) {
+                    accordions[i].classList.remove("active");
+                    accordions[i].nextElementSibling.classList.remove("show");
+                }
+            }
+        </script>
+        <script>
+            (function() {
+                'use strict';
+
+                class Menu {
+                    constructor(settings) {
+                        this.menuRootNode = settings.menuRootNode;
+                        this.isOpened = false;
+                    }
+
+                    changeMenuState(menuState) {
+                        return this.isOpened = !menuState;
+                    }
+
+                    changeToggleHint(toggleHint, toggleNode) {
+                        toggleNode.textContent = toggleHint;
+                        return toggleHint;
+                    }
+                }
+
+                const menuClassesNames = {
+                    rootClass: 'menu',
+                    activeClass: 'menu_activated',
+                    toggleClass: 'menu__toggle',
+                    toggleHintClass: 'menu__toggle-hint'
+                }
+
+                const jsMenuNode = document.querySelector(`.${menuClassesNames.rootClass}`);
+                const demoMenu = new Menu({
+                    menuRootNode: jsMenuNode
+                });
+
+                function getCurrentToggleHint(currentMenuState) {
+                    return (currentMenuState !== true) ? 'Open menu' : 'Close menu';
+                }
+
+                function toggleMenu(event) {
+
+                    let currentMenuState = demoMenu.changeMenuState(demoMenu.isOpened);
+                    let toggleHint = getCurrentToggleHint(currentMenuState);
+
+                    demoMenu.changeToggleHint(
+                        toggleHint,
+                        demoMenu.menuRootNode.querySelector(`.${menuClassesNames.toggleHintClass}`)
+                    );
+                    demoMenu.menuRootNode.classList.toggle(`${menuClassesNames.activeClass}`);
+
+                    return currentMenuState;
+                }
+
+                jsMenuNode.querySelector(`.${menuClassesNames.toggleClass}`).addEventListener('click', toggleMenu);
+            })();
+        </script>
+
+    </article>
+</body>
+
+</html>
